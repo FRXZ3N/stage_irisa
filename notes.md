@@ -110,5 +110,28 @@ Les clients sont des entités qui nécessite l'utilisation d'un SSO pour authent
 
 ### Exemple de déploiement
 
+- React
 >https://developers.redhat.com/articles/2021/11/09/biometric-authentication-webauthn-and-sso#deploy_a_react_client_to_test_webauthn
 
+- Angular
+>https://github.com/mauriciovigolo/keycloak-angular
+
+## Otka
+
+Otka n'étant pas Open Source, il faut envisager des alternatives :
+
+- **Ory**
+>https://www.ory.sh
+
+- Auth0
+>https://auth0.com
+
+- Azure Active Directory
+>https://azure.microsoft.com/en-us/services/active-directory/
+
+- AWS Cognito
+>https://aws.amazon.com/cognito/
+
+## Spring Security
+
+>https://github.com/spring-projects/spring-security
