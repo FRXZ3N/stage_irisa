@@ -177,3 +177,64 @@ Otka n'étant pas Open Source, il faut envisager des alternatives :
 ## Spring Security
 
 >https://github.com/spring-projects/spring-security
+
+## JWT
+`JSON Web Token`
+
+Internet standard for creating data with signature and encryption. Tokens are signed either using a private secret or a public/private key.
+
+- Structure :
+    - Header :
+    Indentifies which algorithm is used to generate the signature
+    ```
+    {
+        "alg": ... // Cryptographic algorithm
+        "typ": "JWT"
+    }
+    ```
+    - Payload :
+    Contains a set of claims
+    ```
+    {
+        "loggedInAs": "admin" // Custom claim
+        "iat": 1422779638 // Issued At Time claim
+    }
+    ```
+    - Signature :
+    Securely validates the token. Calculated by encoding the header and payload and concatening the two together with a period separator. That string is run through the cryptographic algorithm specified in the header
+    ```
+    HMAC_SHA256(
+        secret,
+        base64urlEncoding(header) + '.' +
+        base64urlEncoding(payload)
+    )
+    ```
+
+Finally,\
+ `const token = base64urlEncoding(header) + '.' + base64urlEncoding(payload) + '.' + base64urlEncoding(signature)`
+
+- Use :
+When a user logs in using credentials, a JWT is returned and saved locally. Clients may also authenticate directly by generating and signing its own JWT and pass it to a OAuth service :
+```
+POST /oauth2/token?
+Content-type: application/x-www-form-urlencoded
+
+grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=eyJhb...
+```
+
+If the client passes a valid JWT assertion, the server generate an access_token
+```
+{
+    "access_token": "eyJhb..."
+    "token_type": "Bearer"
+    "expires_in": 3600
+}
+```
+
+- Standards fields : Standard claim fields & Commonly-used header fields
+
+- Implementations : Nearly every langages
+
+- Vulnerabilities :
+    - JWT could become stateless, undermining its primary advantage
+    - Breachs on `alg` field
