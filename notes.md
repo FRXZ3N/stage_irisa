@@ -80,6 +80,47 @@ L'objet retourné est un PublicKeyCredential. Il contient des informations un pe
 
 Après obtention de l'assertion, elle est envoyé au serveur pour validation. La signature est ensuite validée grâce aux clés publiques stockées dans la base de données du serveur.
 
+### SSO
+`Single Sign-On : Méthode d'authentification qui permet aux utilisateurs d'accéder à plusieurs services ou applications avec un seul jeu d'identifiants`
+>https://www.okta.com/fr/blog/2021/02/single-sign-on-sso/
+
+1. Fonctionnement
+
+Basée sur le concept de l'identité fédérée (partage des attributs d'identité sur des systèmes fiables et autonomes), c'est à dire que lorsque qu'un utilisateur est approuvé par un système, il reçoit automatiquement les droits d'accès à tous les autres systèmes ayant établi une relation de confiance avec le premier système. OpenIDConnect et SAML 2.0 sont des protocoles de bases des solutions SSO avancées.\
+Lors de la connexion d'un utilisateur à un service passant par une connexion SSO, un jeton d'authentification est crée et stocké dans le navigateur ou dans les serveurs de la solution SSO. De ce fait, chaque site web ou application effectuera une vérification auprès du service SSO, qui enverra ce jeton pour confirmer l'identité de l'utilisateur et lui fournir l'accès.
+
+2. Types de SSO
+
+- **Security Access Markup Language (SAML)** : Norme ouverte qui encode du texte en langage machine et échange les informations d'utilisation. Cette norme est utilisée pour aider les fournisseurs d'applications à vérifier que les demandes d'authentification sont appropriées. Optimisée pour une utilisation dans les applications web, autorisant la transmission des informations via un navigateur
+
+- **Open Authorization (OAuth)** : Protocole d'autorisation basé sur une norme ouverte qui transfert les informations d'identification entre application, et les chiffre en code machine. Les utilisateurs peuvent ainsi autoriser une application à accéder à leurs données dans une autre application sans avoir besoin de valider manuellement leur identité. Utile pour les applications natives.
+
+- **OpenID Connect (OIDC)** : Se place au dessus d'OAuth 2.0 pour ajouter des informations sur l'utilisateur et autoriser le processus d'authentification SSO. Ce protocole permet d'accéder à plusieurs applications avec une seule session de connexion. Exemple : Connexion à une application via un compte Google ou Facebook.
+
+- **Kerberos**: Protocole permettant une authentification mutuelle, dans laquelle l'utilisateur vérifie l'identité du serveur, et inversement, le tout sur des connexions réseau non sécurisées. Il utilise un service d'attribution de tickets qui emet des jetons pour authentifier les utilisateurs et les applications.
+
+- **Authentification par carte à puce** : Utilisation d'équipements matériels (ex: carte à puce que l'utilisateur connecte à son ordinateur), pour réaliser le processus de SSO. Le logiciel interagit avec les clés cryptographiques de la carte pour authentifier l'utilisateur. Bien qu'elles soient autement sécurisée, l'utilisateur est le risque (matériel portable donc risque de perte) et l'utilisation est coûteuse (Yubikey : de 29 à 90 € pour un utilisateur, de 650 à 950 € pour un serveur)
+
+3. Avantages
+
+- **Surface d'attaque réduite** : la SSO élimune la manque de rigueur sur les mots de passe, donc limite le phishing. Il n'y a besoin que d'un seul mot de passe fort
+
+- **Accès utilisateurs fluides et sécurisés** : la SSO fournit des renseignements en temps réél sur les utilisateurs, ainsi que sur le moement et l'emplacement de la connexion, permettant aux entreprises de protéger l'intégrité de leurs systèmes. Limitations des risques de sécurité : l'équipe IT peut désactiver l'accès d'un terminal aux comptes et données critiques de l'entreprise.
+
+- **Audit simplifié des accès utilisateurs** : la SSO peut servir à configurer les droits d'accès utilisateurs en fonction de leur rôle ou niveau hierarchique. Assurance de la transparence et de la visibilité sur les niveaux d'accès.
+
+- **Utilisateurs plus autonomes et productifs** : la SSO permet de supprimer le besoin de suivi manuel, autorisant un accès immédiat en un seul clic à des milliers d'applications. Fin de la gestion manuelle des demandes.
+
+- **Pérennisation** : Première étape de la protection d'une entreprise.
+
+4. Défis
+
+- **Risques liés aux accès utilisateurs** : Réussir à obtenir des identifiants SSO fournit l'accès à toutes les applications auxquelles l'utilisateurs à accès. Il est donc nécessaire de déployer d'autres mécanismes d'authentification
+
+- **Vulnérabilités potentielles** : Des vulnérabilités dans les protocoles SAML et OAuth permettent un accès non autorisé. Il faut donc associer la SSO avec d'autres facteurs d'authentification et de gouvernance des identités
+
+- **Compatibilité des applications** : Toutes les applications ne s'intègrent pas efficacement dans une solution SSO. Il faut donc dans la conception de l'application, prévoir une vraie fonctionnalité SSO, auquel cas, la couverture ne sera pas complète.
+
 
 ### Red Hat's SSO : Realm configuration
 
