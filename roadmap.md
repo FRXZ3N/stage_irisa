@@ -20,8 +20,45 @@ Ici, copie de la browser base authentication, pour y ajouter l'exexcution de l'a
 ![](_resources/authConfigRegistrationFlow.png)\
 ici, copie du registration flow de base, pour y ajouter WebAuthn Authenticator (Possibilité de ne pas le mettre en `required`).
 
+Utilisation d'une nouvelle instance de l'objet `Keycloak`, prenant en paramètres le fichier de configuration [keycloak.json](#utiliser-webauthn-pour-envoyer-les-informations-à-keycloak-depuis-react)
+
 ## Ajouter plus d'informations à celles de base
 
 ## Analyser l'API REST afin d'ajouter des flows de manière programmique
+
+- Authentication Management
+
+  > https://www.keycloak.org/docs-api/18.0/rest-api/index.html#_authentication_management_resource
+
+  - Add new authentication execution
+
+  ```
+  POST /{realm}/authentication/executions
+  ```
+
+  - Update execution with new configuration
+
+  ```
+  POST /{realm}/authentication/executions/{executionId}/config
+  ```
+
+  - Lower/Raise execution's priority
+
+  ```
+  POST /{realm}/authentication/executions/{executionId}/lower-priority
+  POST /{realm}/authentication/executions/{executionId}/raise-priority
+  ```
+
+  - Create a new authentication flow
+
+  ```
+  POST /{realm}/authentication/flows
+  ```
+
+  - Add new authentication execution to a flow
+
+  ```
+  POST /{realm}/authentication/flows/{flowAlias}/executions/execution
+  ```
 
 ## Adaptation dynamique, application de stratégie
