@@ -24,6 +24,8 @@ Utilisation d'une nouvelle instance de l'objet `Keycloak`, prenant en paramètre
 
 ## Ajouter plus d'informations à celles de base
 
+KeysMetadataRepresentation ?
+
 ## Analyser l'API REST afin d'ajouter des flows de manière programmique
 
 - Authentication Management
