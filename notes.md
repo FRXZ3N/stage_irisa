@@ -2,6 +2,17 @@
 
 Open Source -> Faille de sécurité ?
 
+# Table of contents
+
+- [WebAuthn&SSO](#webauthnsso)
+  - [WebAuthnAPI](#webauthnapi)
+  - [SSO](#sso)
+  - [Red Hat's SSO Client](#red-hats-sso--client-for-biometric-authentication)
+  - [Red Hat's realm config](#red-hats-sso--realm-configuration)
+- [Otka](#otka)
+- [Spring Security](#spring-security)
+- [JWT](#jwt)
+
 ## WebAuthn&SSO
 
 > https://webauthn.guide
