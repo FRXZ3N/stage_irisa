@@ -162,12 +162,15 @@ Afin d'utiliser WebAuthn dans Keycloak, il faut configurer WebAuthnRegister comm
 Les clients sont des entités qui nécessite l'utilisation d'un SSO pour authentifier un utilisateur. Le plus souvent, les clients sont des applications ou des services qui veulent utliser SSO pour se sécuriser eux-mêmes et proposer une solution de connexion. Ils peuvent également demander les informations d'identité ou un token d'accès pour accéder à d'autres services de manière sécurisée.\
 
 - Installation :
+
   - Spécification du realm
   - Url de redirection pour l'authentification
   - SSL
   - Resource
   - Booléen pour serveur public ou non
   - Port de confidentialité
+
+- Test avec téléphone : prise en charge de la lecture biométrique et enregistrement de l'appareil.
 
 ### Exemple de déploiement
 
@@ -195,7 +198,11 @@ Otka n'étant pas Open Source, il faut envisager des alternatives :
   > https://azure.microsoft.com/en-us/services/active-directory/
 
 - AWS Cognito
+
   > https://aws.amazon.com/cognito/
+
+- **OpenStack Keystone**
+  > https://docs.openstack.org/yoga
 
 ## Spring Security
 
