@@ -24,7 +24,10 @@ Utilisation d'une nouvelle instance de l'objet `Keycloak`, prenant en paramètre
 
 ## Ajouter plus d'informations à celles de base
 
-KeysMetadataRepresentation ?
+KeysMetadataRepresentation ?\
+Utilisations des scopes ?\
+
+> https://partenaires.franceconnect.gouv.fr/fcp/fournisseur-service#identite-pivot
 
 ## Analyser l'API REST afin d'ajouter des flows de manière programmique
 
@@ -63,4 +66,36 @@ KeysMetadataRepresentation ?
   POST /{realm}/authentication/flows/{flowAlias}/executions/execution
   ```
 
+### Analyse du code openSource
+
+- CredentialModel (DEPRECATED)
+
+  - id
+  - type
+  - userLabel
+  - createdDate
+  - secretData
+  - credentialData
+
+- OTPCredentialModel
+
+  - String secretValue
+  - String subType
+  - int digits
+  - int counter
+  - int period
+  - String algorithm
+
+    - credentialData (subType, digits, counter, period, algorithm)
+    - secretData (secretValue)
+
+  - createTOTP()
+    > Time One Time Password
+  - createHOTP()
+    > HMAC One Time Password
+  - createFromCredentialModel()
+  - fillCredentialModelFields()
+
 ## Adaptation dynamique, application de stratégie
+
+Export du fichier .jar pour intégration au sein de Keycloak (via le folder standalone/deployments)\
