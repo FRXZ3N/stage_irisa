@@ -1,0 +1,915 @@
+{
+	"info": {
+		"_postman_id": "da6aab4f-3834-4a16-afae-dfd177be7a9a",
+		"name": "Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21462100"
+	},
+	"item": [
+		{
+			"name": "Get demo realm info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete demo realm",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create demo-realm clients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"clientId\": \"demo-realm\",\n        \"name\": \"demo Realm\",\n        \"surrogateAuthRequired\": false,\n        \"enabled\": true,\n        \"alwaysDisplayInConsole\": false,\n        \"clientAuthenticatorType\": \"client-secret\",\n        \"redirectUris\": [],\n        \"webOrigins\": [],\n        \"notBefore\": 0,\n        \"bearerOnly\": true,\n        \"consentRequired\": false,\n        \"standardFlowEnabled\": true,\n        \"implicitFlowEnabled\": false,\n        \"directAccessGrantsEnabled\": false,\n        \"serviceAccountsEnabled\": false,\n        \"publicClient\": false,\n        \"frontchannelLogout\": false,\n        \"attributes\": {},\n        \"authenticationFlowBindingOverrides\": {},\n        \"fullScopeAllowed\": false,\n        \"nodeReRegistrationTimeout\": 0,\n        \"defaultClientScopes\": [],\n        \"optionalClientScopes\": [],\n        \"access\": {\n            \"view\": true,\n            \"configure\": true,\n            \"manage\": true\n        }\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/master/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"master",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create demo realm (NOT WORKING)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"demo\",\n    \"realm\": \"demo\",\n    \"notBefore\": 0,\n    \"defaultSignatureAlgorithm\": \"RS256\",\n    \"revokeRefreshToken\": false,\n    \"refreshTokenMaxReuse\": 0,\n    \"accessTokenLifespan\": 300,\n    \"accessTokenLifespanForImplicitFlow\": 900,\n    \"ssoSessionIdleTimeout\": 1800,\n    \"ssoSessionMaxLifespan\": 36000,\n    \"ssoSessionIdleTimeoutRememberMe\": 0,\n    \"ssoSessionMaxLifespanRememberMe\": 0,\n    \"offlineSessionIdleTimeout\": 2592000,\n    \"offlineSessionMaxLifespanEnabled\": false,\n    \"offlineSessionMaxLifespan\": 5184000,\n    \"clientSessionIdleTimeout\": 0,\n    \"clientSessionMaxLifespan\": 0,\n    \"clientOfflineSessionIdleTimeout\": 0,\n    \"clientOfflineSessionMaxLifespan\": 0,\n    \"accessCodeLifespan\": 60,\n    \"accessCodeLifespanUserAction\": 300,\n    \"accessCodeLifespanLogin\": 1800,\n    \"actionTokenGeneratedByAdminLifespan\": 43200,\n    \"actionTokenGeneratedByUserLifespan\": 300,\n    \"oauth2DeviceCodeLifespan\": 600,\n    \"oauth2DevicePollingInterval\": 5,\n    \"enabled\": true,\n    \"sslRequired\": \"external\",\n    \"registrationAllowed\": true,\n    \"registrationEmailAsUsername\": false,\n    \"rememberMe\": true,\n    \"verifyEmail\": false,\n    \"loginWithEmailAllowed\": true,\n    \"duplicateEmailsAllowed\": false,\n    \"resetPasswordAllowed\": true,\n    \"editUsernameAllowed\": false,\n    \"bruteForceProtected\": false,\n    \"permanentLockout\": false,\n    \"maxFailureWaitSeconds\": 900,\n    \"minimumQuickLoginWaitSeconds\": 60,\n    \"waitIncrementSeconds\": 60,\n    \"quickLoginCheckMilliSeconds\": 1000,\n    \"maxDeltaTimeSeconds\": 43200,\n    \"failureFactor\": 30,\n    \"defaultRole\": {\n        \"id\": \"ab2746e5-8c1a-4078-8e13-815af70aabe5\",\n        \"name\": \"default-roles-demo\",\n        \"description\": \"${role_default-roles}\",\n        \"composite\": true,\n        \"clientRole\": false,\n        \"containerId\": \"demo\"\n    },\n    \"requiredCredentials\": [\n        \"password\"\n    ],\n    \"otpPolicyType\": \"totp\",\n    \"otpPolicyAlgorithm\": \"HmacSHA1\",\n    \"otpPolicyInitialCounter\": 0,\n    \"otpPolicyDigits\": 6,\n    \"otpPolicyLookAheadWindow\": 1,\n    \"otpPolicyPeriod\": 30,\n    \"otpSupportedApplications\": [\n        \"FreeOTP\",\n        \"Google Authenticator\"\n    ],\n    \"webAuthnPolicyRpEntityName\": \"keycloak\",\n    \"webAuthnPolicySignatureAlgorithms\": [\n        \"ES256\"\n    ],\n    \"webAuthnPolicyRpId\": \"\",\n    \"webAuthnPolicyAttestationConveyancePreference\": \"not specified\",\n    \"webAuthnPolicyAuthenticatorAttachment\": \"not specified\",\n    \"webAuthnPolicyRequireResidentKey\": \"not specified\",\n    \"webAuthnPolicyUserVerificationRequirement\": \"not specified\",\n    \"webAuthnPolicyCreateTimeout\": 0,\n    \"webAuthnPolicyAvoidSameAuthenticatorRegister\": false,\n    \"webAuthnPolicyAcceptableAaguids\": [],\n    \"webAuthnPolicyPasswordlessRpEntityName\": \"keycloak\",\n    \"webAuthnPolicyPasswordlessSignatureAlgorithms\": [\n        \"ES256\"\n    ],\n    \"webAuthnPolicyPasswordlessRpId\": \"\",\n    \"webAuthnPolicyPasswordlessAttestationConveyancePreference\": \"not specified\",\n    \"webAuthnPolicyPasswordlessAuthenticatorAttachment\": \"not specified\",\n    \"webAuthnPolicyPasswordlessRequireResidentKey\": \"not specified\",\n    \"webAuthnPolicyPasswordlessUserVerificationRequirement\": \"not specified\",\n    \"webAuthnPolicyPasswordlessCreateTimeout\": 0,\n    \"webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister\": false,\n    \"webAuthnPolicyPasswordlessAcceptableAaguids\": [],\n    \"browserSecurityHeaders\": {\n        \"contentSecurityPolicyReportOnly\": \"\",\n        \"xContentTypeOptions\": \"nosniff\",\n        \"xRobotsTag\": \"none\",\n        \"xFrameOptions\": \"SAMEORIGIN\",\n        \"contentSecurityPolicy\": \"frame-src 'self'; frame-ancestors 'self'; object-src 'none';\",\n        \"xXSSProtection\": \"1; mode=block\",\n        \"strictTransportSecurity\": \"max-age=31536000; includeSubDomains\"\n    },\n    \"smtpServer\": {},\n    \"eventsEnabled\": false,\n    \"eventsListeners\": [\n        \"jboss-logging\"\n    ],\n    \"enabledEventTypes\": [],\n    \"adminEventsEnabled\": false,\n    \"adminEventsDetailsEnabled\": false,\n    \"identityProviders\": [],\n    \"identityProviderMappers\": [],\n    \"internationalizationEnabled\": false,\n    \"supportedLocales\": [],\n    \"browserFlow\": \"WebAuthn Browser\",\n    \"registrationFlow\": \"WebAuthn Registration\",\n    \"directGrantFlow\": \"direct grant\",\n    \"resetCredentialsFlow\": \"reset credentials\",\n    \"clientAuthenticationFlow\": \"clients\",\n    \"dockerAuthenticationFlow\": \"docker auth\",\n    \"attributes\": {\n        \"cibaBackchannelTokenDeliveryMode\": \"poll\",\n        \"cibaExpiresIn\": \"120\",\n        \"cibaAuthRequestedUserHint\": \"login_hint\",\n        \"oauth2DeviceCodeLifespan\": \"600\",\n        \"oauth2DevicePollingInterval\": \"5\",\n        \"clientOfflineSessionMaxLifespan\": \"0\",\n        \"clientSessionIdleTimeout\": \"0\",\n        \"parRequestUriLifespan\": \"60\",\n        \"clientSessionMaxLifespan\": \"0\",\n        \"clientOfflineSessionIdleTimeout\": \"0\",\n        \"cibaInterval\": \"5\"\n    },\n    \"userManagedAccessAllowed\": false,\n    \"clientProfiles\": {\n        \"profiles\": []\n    },\n    \"clientPolicies\": {\n        \"policies\": []\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new execution flow",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"alias\": \"browser-for-fun\",\n        \"description\": \"browser based authentication\",\n        \"providerId\": \"basic-flow\",\n        \"topLevel\": true,\n        \"builtIn\": true,\n        \"authenticationExecutions\": [\n            {\n                \"authenticator\": \"auth-cookie\",\n                \"requirement\": \"ALTERNATIVE\",\n                \"priority\": 10,\n                \"userSetupAllowed\": false,\n                \"autheticatorFlow\": false\n            },\n            {\n                \"authenticator\": \"auth-spnego\",\n                \"requirement\": \"DISABLED\",\n                \"priority\": 20,\n                \"userSetupAllowed\": false,\n                \"autheticatorFlow\": false\n            },\n            {\n                \"authenticator\": \"identity-provider-redirector\",\n                \"requirement\": \"ALTERNATIVE\",\n                \"priority\": 25,\n                \"userSetupAllowed\": false,\n                \"autheticatorFlow\": false\n            },\n            {\n                \"requirement\": \"ALTERNATIVE\",\n                \"priority\": 30,\n                \"flowAlias\": \"forms\",\n                \"userSetupAllowed\": false,\n                \"autheticatorFlow\": true\n            }\n        ]\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/flows",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"flows"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new authentication to an execution flow",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"provider\":\"reset-password\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/flows/webauthn browser/executions/execution",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"flows",
+						"webauthn browser",
+						"executions",
+						"execution"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a copy of a flow",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"newName\":\"test\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/flows/browser-for-fun/copy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"flows",
+						"browser-for-fun",
+						"copy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get authentication executions for a flow",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/flows/test/executions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"flows",
+						"test",
+						"executions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get authentication executions for a flow (WebAuthn Browser)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/flows/webauthn browser/executions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"flows",
+						"webauthn browser",
+						"executions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an authentication execution",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/executions/01163fa4-7961-4a7a-9dc1-2c73e351cbbc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"executions",
+						"01163fa4-7961-4a7a-9dc1-2c73e351cbbc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get authentication flows",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/flows",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"flows"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Raise `reset-password` priority",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/executions/a467a399-0f29-4016-a7bc-e91c9c37af28/raise-priority",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"executions",
+						"a467a399-0f29-4016-a7bc-e91c9c37af28",
+						"raise-priority"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Raise `WebAuthn Authenticator` priority",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/executions/f636c25b-e7b2-43d5-9b77-d73a38f8f695/raise-priority",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"executions",
+						"f636c25b-e7b2-43d5-9b77-d73a38f8f695",
+						"raise-priority"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lower `WebAuthn Authenticator` priority",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/executions/f636c25b-e7b2-43d5-9b77-d73a38f8f695/lower-priority",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"executions",
+						"f636c25b-e7b2-43d5-9b77-d73a38f8f695",
+						"lower-priority"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lower `reset-password` priority Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/executions/a467a399-0f29-4016-a7bc-e91c9c37af28/lower-priority",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"executions",
+						"a467a399-0f29-4016-a7bc-e91c9c37af28",
+						"lower-priority"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new flow with new execution to existing flow",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"provider\":\"reset-password\",\n        \"alias\":\"bff\",\n        \"type\":\"generic\",\n        \"description\": \"new flow bff\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/flows/webauthn browser/executions/flow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"flows",
+						"webauthn browser",
+						"executions",
+						"flow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get required actions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/required-actions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"required-actions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update authentication executions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": \"a467a399-0f29-4016-a7bc-e91c9c37af28\",\n        \"requirement\": \"REQUIRED\",\n        \"displayName\": \"Reset Password\",\n        \"requirementChoices\": [\n            \"REQUIRED\",\n            \"ALTERNATIVE\",\n            \"DISABLED\"\n        ],\n        \"configurable\": false,\n        \"providerId\": \"reset-password\",\n        \"level\": 0,\n        \"index\": 4\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/flows/webauthn browser/executions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"flows",
+						"webauthn browser",
+						"executions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update authentication executions Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": \"a467a399-0f29-4016-a7bc-e91c9c37af28\",\n        \"requirement\": \"REQUIRED\",\n        \"displayName\": \"Reset Password\",\n        \"requirementChoices\": [\n            \"REQUIRED\",\n            \"ALTERNATIVE\",\n            \"DISABLED\"\n        ],\n        \"configurable\": false,\n        \"providerId\": \"reset-password\",\n        \"level\": 0,\n        \"index\": 4\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/flows/webauthn browser/executions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"flows",
+						"webauthn browser",
+						"executions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create required action",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"providerId\":\"reset-password\",\n\t\"name\": \"new-reset-password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/register-required-action",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"register-required-action"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete required actions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/authentication/required-actions/reset-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"authentication",
+						"required-actions",
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
