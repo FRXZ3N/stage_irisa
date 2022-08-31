@@ -9,7 +9,7 @@ Open Source -> Faille de sécurité ?
   - [SSO](#sso)
   - [Red Hat's SSO Client](#red-hats-sso--client-for-biometric-authentication)
   - [Red Hat's realm config](#red-hats-sso--realm-configuration)
-- [Otka](#otka)
+- [Okta](#okta)
 - [Spring Security](#spring-security)
 - [JWT](#jwt)
 
@@ -181,9 +181,9 @@ Les clients sont des entités qui nécessite l'utilisation d'un SSO pour authent
 - Angular
   > https://github.com/mauriciovigolo/keycloak-angular
 
-## Otka
+## Okta
 
-Otka n'étant pas Open Source, il faut envisager des alternatives :
+Okta n'étant pas Open Source, il faut envisager des alternatives :
 
 - **Ory**
 
